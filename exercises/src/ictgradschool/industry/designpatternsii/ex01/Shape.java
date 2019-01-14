@@ -1,5 +1,7 @@
 package ictgradschool.industry.designpatternsii.ex01;
 
+import java.awt.*;
+
 /**
  * Abstract superclass to represent the general concept of a ictgradschool.industry.lab15.ex01.Shape. This class
  * defines state common to all special kinds of ictgradschool.industry.lab15.ex01.Shape instances and implements
@@ -22,6 +24,9 @@ public abstract class Shape {
 	protected static final int DEFAULT_HEIGHT = 35;
 
 	protected static final int DEFAULT_WIDTH = 25;
+
+	protected static final String DEFAULT_TEXT = null;
+	protected static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	// ===
 
 	// === Instance variables, accessible by subclasses.
@@ -36,7 +41,13 @@ public abstract class Shape {
 	protected int fWidth;
 
 	protected int fHeight;
-    // ===
+	//adding protected fields to store text value and text colour.
+	protected String text=DEFAULT_TEXT;
+	protected Color textColor=DEFAULT_TEXT_COLOR;
+
+
+// ===
+
 
 	/**
 	 * Creates a ictgradschool.industry.lab15.ex01.Shape object with default values for instance variables.
@@ -105,7 +116,27 @@ public abstract class Shape {
 	}
 
     /** Method to perform shape painting. */
-    public abstract void paint(Painter painter);
+    public final void paint(Painter painter){
+    	paintShape(painter);
+
+    	if(this.text!=null){
+    		painter.setColor(textColor);
+    		painter.drawCenteredText(text,fX,fY,fWidth,fHeight);
+    		painter.setColor(Color.black);
+		}
+
+	}
+
+    public abstract void paintShape(Painter painter);
+
+    //** setter methods for text value and colour */
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public void setTextColor(Color textColor) {
+		this.textColor = textColor;
+	}
 
 	/**
 	 * Returns this ictgradschool.industry.lab15.ex01.Shape object's x position.

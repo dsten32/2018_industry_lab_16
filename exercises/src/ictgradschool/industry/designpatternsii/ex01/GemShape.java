@@ -48,7 +48,7 @@ public class GemShape extends ictgradschool.industry.designpatternsii.ex01.Shape
 	 * Paints this GemShape object using the supplied Painter object.
 	 */
 	@Override
-	public void paint(Painter painter) {
+	public void paintShape(Painter painter) {
 
         Polygon polygon = new Polygon();
 

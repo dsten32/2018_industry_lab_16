@@ -52,6 +52,7 @@ public class AnimationViewer extends JPanel implements ActionListener {
         // Add some text to some shapes
         rect.setText("Rectangle");
         largeGem.setText("Gem");
+        largeGem.setTextColor(Color.MAGENTA);
         imageShape.setTextColor(Color.white);
         imageShape.setText("RAWR");
 
