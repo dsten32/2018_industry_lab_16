@@ -53,17 +53,19 @@ public class Main extends JFrame {
 
 		_courseModel = new Course();
 
-		/* Adapters. */
-		DistributionPanelAdapter graphView = new DistributionPanelAdapter();
-		StatisticsPanelAdapter statsView = null;
-		CourseAdapter tableModel = new CourseAdapter(_courseModel);
+
 
 		/* View components. */
 		DistributionPanel distributionPanel = new DistributionPanel(_courseModel);
 		StatisticsPanel statsPanel = new StatisticsPanel(_courseModel);
-		JTable tableView = new JTable(tableModel);
+		JTable tableView = new JTable();
 
+		/* Adapters. */
+		DistributionPanelAdapter graphView = new DistributionPanelAdapter();
+		StatisticsPanelAdapter statsView = new StatisticsPanelAdapter();
+		CourseAdapter tableModel = new CourseAdapter(_courseModel);
 
+		tableView.setModel(tableModel);
 		
 		/**********************************************************************
 		 * YOUR CODE ENDS HERE

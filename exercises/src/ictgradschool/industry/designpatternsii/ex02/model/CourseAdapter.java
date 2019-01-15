@@ -45,6 +45,27 @@ public class CourseAdapter extends AbstractTableModel implements CourseListener 
 		return 7;
 	}
 
+	@Override
+	public String getColumnName(int column) {
+		switch (column){
+			case STU_ID:
+				return "Student ID";
+			case STU_LNAME:
+				return "Surname";
+			case STU_FNAME:
+				return "Forename";
+			case STU_EXAM:
+				return "Exam";
+			case STU_TEST:
+				return "Test";
+			case STU_ASS:
+				return "Assigment";
+			case STU_OVERALL:
+				return "Overall";
+		}
+		return "hi";
+	}
+
 	//set to return the result from the student object in the current row(??)
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
