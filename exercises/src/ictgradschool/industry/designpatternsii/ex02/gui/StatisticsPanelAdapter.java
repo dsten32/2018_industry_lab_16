@@ -6,7 +6,7 @@ import ictgradschool.industry.designpatternsii.ex02.model.CourseListener;
 import javax.swing.table.AbstractTableModel;
 import java.awt.event.ComponentListener;
 
-public class StatisticsPanelAdapter extends AbstractTableModel implements CourseListener {
+public class StatisticsPanelAdapter implements CourseListener {
 
 
 	/**********************************************************************
@@ -16,13 +16,14 @@ public class StatisticsPanelAdapter extends AbstractTableModel implements Course
 
 	public void setCourse(Course course) {
 		this.course = course;
-		course.addCourseListener(this);
+
 	}
 
 	Course course;
 
-	public  StatisticsPanelAdapter(StatisticsPanel panel){
+	public  StatisticsPanelAdapter(StatisticsPanel panel,Course course){
 		this.panel=panel;
+		course.addCourseListener(this);
 	}
 
 	@Override
@@ -31,19 +32,5 @@ public class StatisticsPanelAdapter extends AbstractTableModel implements Course
 	}
 
 
-	@Override
-	public int getRowCount() {
-		return 1;
-	}
 
-	@Override
-	public int getColumnCount() {
-		return 3;
-	}
-
-	@Override
-	public Object getValueAt(int rowIndex, int columnIndex) {
-
-		return null;
-	}
 }

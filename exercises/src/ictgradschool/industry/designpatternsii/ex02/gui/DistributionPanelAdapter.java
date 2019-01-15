@@ -5,7 +5,7 @@ import ictgradschool.industry.designpatternsii.ex02.model.CourseListener;
 
 import javax.swing.table.AbstractTableModel;
 
-public class DistributionPanelAdapter extends AbstractTableModel implements CourseListener {
+public class DistributionPanelAdapter implements CourseListener {
     /**********************************************************************
      * YOUR CODE HERE
      */
@@ -19,8 +19,9 @@ public class DistributionPanelAdapter extends AbstractTableModel implements Cour
 
 
 
-  public DistributionPanelAdapter(DistributionPanel panel){
+  public DistributionPanelAdapter(DistributionPanel panel, Course course){
       this.panel=panel;
+      course.addCourseListener(this);
   }
 
     @Override
@@ -28,18 +29,5 @@ public class DistributionPanelAdapter extends AbstractTableModel implements Cour
         panel.repaint();
     }
 
-    @Override
-    public int getRowCount() {
-        return 1;
-    }
 
-    @Override
-    public int getColumnCount() {
-        return 1;
-    }
-
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        return null;
-    }
 }

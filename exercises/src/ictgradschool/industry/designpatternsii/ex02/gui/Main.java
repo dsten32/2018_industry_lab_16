@@ -51,23 +51,19 @@ public class Main extends JFrame {
 		 * TODO Wire-up (connect) objects.
 		 */
 
-
-
-
-
 		/* View components. */
 		DistributionPanel distributionPanel = new DistributionPanel(_courseModel);
 		StatisticsPanel statsPanel = new StatisticsPanel(_courseModel);
 		JTable tableView = new JTable();
 
 		/* Adapters. */
-		DistributionPanelAdapter graphView = new DistributionPanelAdapter(distributionPanel);
-		StatisticsPanelAdapter statsView = new StatisticsPanelAdapter(statsPanel);
+		DistributionPanelAdapter graphView = new DistributionPanelAdapter(distributionPanel, _courseModel);
+		StatisticsPanelAdapter statsView = new StatisticsPanelAdapter(statsPanel,_courseModel);
 		CourseAdapter tableModel = new CourseAdapter(_courseModel);
 
 		tableView.setModel(tableModel);
-		graphView.setCourse(_courseModel);
-		statsView.setCourse(_courseModel);
+//		graphView.setCourse(_courseModel);
+//		statsView.setCourse(_courseModel);
 		
 		/**********************************************************************
 		 * YOUR CODE ENDS HERE
