@@ -46,20 +46,24 @@ public class Main extends JFrame {
 		
 		/**********************************************************************
 		 * YOUR CODE STARTS HERE
-		 * TODO Instantiate view classes.
+		 * TODO Instantiate view classes.		 *
 		 * TODO Instantiate adapters.
 		 * TODO Wire-up (connect) objects.
 		 */
 
-		/* View components. */
-		DistributionPanel distributionPanel = null;
-		StatisticsPanel statsPanel = null;
-		JTable tableView = null;
+		_courseModel = new Course();
 
 		/* Adapters. */
-		DistributionPanelAdapter graphView = null;
+		DistributionPanelAdapter graphView = new DistributionPanelAdapter();
 		StatisticsPanelAdapter statsView = null;
-		CourseAdapter tableModel = null;
+		CourseAdapter tableModel = new CourseAdapter(_courseModel);
+
+		/* View components. */
+		DistributionPanel distributionPanel = new DistributionPanel(_courseModel);
+		StatisticsPanel statsPanel = new StatisticsPanel(_courseModel);
+		JTable tableView = new JTable(tableModel);
+
+
 		
 		/**********************************************************************
 		 * YOUR CODE ENDS HERE

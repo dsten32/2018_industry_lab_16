@@ -8,6 +8,14 @@ public class CourseAdapter extends AbstractTableModel implements CourseListener 
 	 * YOUR CODE HERE
 	 */
 	private Course model;
+	private final int STU_ID=0;
+	private final int STU_FNAME=2;
+	private final int STU_LNAME=1;
+	private final int STU_EXAM=3;
+	private final int STU_TEST=4;
+	private final int STU_ASS=5;
+	private final int STU_OVERALL=6;
+
 
 	//create a new course adapter that sets the course model
 	// it has ben given and adds the courselistener via the
@@ -40,6 +48,25 @@ public class CourseAdapter extends AbstractTableModel implements CourseListener 
 	//set to return the result from the student object in the current row(??)
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		return model.getResultAt(rowIndex);
+
+		switch (columnIndex){
+			case STU_ID:
+				return model.getResultAt(rowIndex)._studentID;
+			case STU_LNAME:
+				return model.getResultAt(rowIndex)._studentSurname;
+			case STU_FNAME:
+				return model.getResultAt(rowIndex)._studentForename;
+			case STU_EXAM:
+				return model.getResultAt(rowIndex).getAssessmentElement(StudentResult.AssessmentElement.Exam);
+			case STU_TEST:
+				return model.getResultAt(rowIndex).getAssessmentElement(StudentResult.AssessmentElement.Test);
+			case STU_ASS:
+				return model.getResultAt(rowIndex).getAssessmentElement(StudentResult.AssessmentElement.Assignment);
+			case STU_OVERALL:
+				return model.getResultAt(rowIndex).getAssessmentElement(StudentResult.AssessmentElement.Overall);
+		}
+
+
+		return model.getResultAt(rowIndex)._studentID;
 	}
 }
