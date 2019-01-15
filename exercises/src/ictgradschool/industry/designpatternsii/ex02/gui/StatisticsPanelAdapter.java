@@ -4,14 +4,30 @@ import ictgradschool.industry.designpatternsii.ex02.model.Course;
 import ictgradschool.industry.designpatternsii.ex02.model.CourseListener;
 
 import javax.swing.table.AbstractTableModel;
+import java.awt.event.ComponentListener;
 
 public class StatisticsPanelAdapter extends AbstractTableModel implements CourseListener {
+
+
 	/**********************************************************************
 	 * YOUR CODE HERE
 	 */
+	StatisticsPanel panel;
+
+	public void setCourse(Course course) {
+		this.course = course;
+		course.addCourseListener(this);
+	}
+
+	Course course;
+
+	public  StatisticsPanelAdapter(StatisticsPanel panel){
+		this.panel=panel;
+	}
+
 	@Override
 	public void courseHasChanged(Course course) {
-		fireTableDataChanged();
+		panel.repaint();
 	}
 
 
