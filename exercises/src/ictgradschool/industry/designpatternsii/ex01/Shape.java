@@ -120,9 +120,10 @@ public abstract class Shape {
     	paintShape(painter);
 
     	if(this.text!=null){
+    		Color c=painter.getColor();
     		painter.setColor(textColor);
     		painter.drawCenteredText(text,fX,fY,fWidth,fHeight);
-    		painter.setColor(Color.black);
+    		painter.setColor(c);
 		}
 
 	}
